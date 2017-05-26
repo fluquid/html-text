@@ -7,6 +7,10 @@ def test_extract_text():
     html = u'<html><style>.div {}</style><body><p>Hello,   world!</body></html>'
     assert extract_text(html) == u'Hello, world!'
 
+def test_adjoining():
+    html = u'<html><style>.div {}</style><body><p><span>Hello</span>, world!</p></body></html><div><span>Phone</span>12345</div>'
+    assert extract_text(html) == u'Hello, world! Phone 12345'
+
 
 def test_declared_encoding():
     html = (u'<?xml version="1.0" encoding="utf-8" ?>'
