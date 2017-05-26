@@ -42,9 +42,8 @@ def parse_html(html):
 def selector_to_text(sel):
     """ Convert a cleaned selector to text.
     """
-    return ' '.join(x
-                    for x in sel.xpath("//text()[normalize-space(.)]").extract()
-                    if x)
+    return ' '.join(
+        x for x in sel.xpath("//text()[normalize-space(.)]").extract() if x)
 
 
 def cleaned_selector(html):
